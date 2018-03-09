@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+认证结果
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <p class="text-center">{{ rzxinxi.name }}</p>
+        <p class="text-center">{{ rzxinxi.school }}</p>
+        <p class="text-center">{{ rzxinxi.sctime }}</p>
+        <p class="text-center">{{ rzxinxi.couser }}</p>
+        <p class="text-center">{{ message }}</p>
+        {% if is_code %}
+            <form action="/coded/" method="post">
+            {% csrf_token %}
+                <button type="submit" class="btn btn-block">重新提交</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

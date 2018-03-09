@@ -1,0 +1,39 @@
+{% extends 'base.html' %}.
+{% block title %}
+认证页面
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <form action="/code/" method="post">
+            {% if message %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+            <h2 class="text-center">欢迎认证</h2>
+            {% csrf_token %}
+            <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">姓名</label>
+            {{ form.name }}
+            </div>
+            <div class="form-group">
+            <label for="{{ form.school.id_for_label }}">请选择你的学校</label>
+            {{ form.school}}
+            </div>
+            <div class="form-group">
+            <label for="{{ form.couser.id_for_label }}">学信网账号</label>
+            {{ form.couser }}
+            </div>
+            <div class="form-group">
+            <label for="{{ form.sex.id_for_label }}">性别</label>
+            {{ form.sex }}
+            </div>
+            <div class="form-group">
+            <label for="{{ form.sctime.id_for_label }}">入学时间</label>
+            {{ form.sctime }}
+            </div>
+            <button type="reset" class="btn btn-primary">重置</button>
+            <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
